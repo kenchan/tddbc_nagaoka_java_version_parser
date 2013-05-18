@@ -1,5 +1,5 @@
 class JavaVersion
-  VERSION_FORMAT = /^JDK(\d)+u(\d)+$/
+  VERSION_FORMAT = /^JDK(\d+)u(\d+)$/
 
   def initialize(version_string)
     @version_string = version_string
