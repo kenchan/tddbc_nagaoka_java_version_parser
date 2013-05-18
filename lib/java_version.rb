@@ -1,5 +1,5 @@
 class JavaVersion
   def self.valid?(str)
-    true
+    str =~ /^JDK\d+u\d+$/
   end
 end
