@@ -10,12 +10,14 @@ class JavaVersion
     $1.to_i
   end
 
-  def self.valid?(str)
-    str =~ VERSION_FORMAT
-  end
+  class << self
+    def valid?(str)
+      str =~ VERSION_FORMAT
+    end
 
-  def self.parse(str)
-    raise "Invalid Version Format: #{str}" unless valid?(str)
-    self.new
+    def parse(str)
+      raise "Invalid Version Format: #{str}" unless valid?(str)
+      self.new(str)
+    end
   end
 end
