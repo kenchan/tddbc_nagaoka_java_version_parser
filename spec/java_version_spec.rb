@@ -29,14 +29,9 @@ describe JavaVersion do
   end
 
   context '"JDK7u40" parsed object' do
-    describe '#family_number' do
-      subject { JavaVersion.parse('JDK7u40').family_number }
-      it { should == 7 }
-    end
+    subject { JavaVersion.parse('JDK7u40') }
 
-    describe '#update_number' do
-      subject { JavaVersion.parse('JDK7u40').update_number }
-      it { should == 40 }
-    end
+    its(:family_number) { should == 7 }
+    its(:update_number) { should == 40 }
   end
 end
