@@ -5,10 +5,9 @@ class JavaVersion
 
   VERSION_FORMAT = /^JDK(\d+)u(\d+)$/
 
-  def initialize(version_string)
-    version_string =~ VERSION_FORMAT
-    @family_number = $1.to_i
-    @update_number = $2.to_i
+  def initialize(family_number, update_number)
+    @family_number = family_number
+    @update_number = update_number
   end
 
   def <=>(target)
@@ -25,8 +24,11 @@ class JavaVersion
     end
 
     def parse(str)
-      raise "Invalid Version Format: #{str}" unless valid?(str)
-      self.new(str)
+      if str =~ VERSION_FORMAT
+        self.new($1.to_i, $2.to_i)
+      else
+        raise "Invalid Version Format: #{str}"
+      end
     end
   end
 end
