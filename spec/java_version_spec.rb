@@ -27,4 +27,9 @@ describe JavaVersion do
       it { expect { JavaVersion.parse('hoge') }.to raise_error }
     end
   end
+
+  describe '#family_number' do
+    subject { JavaVersion.parse('JDK7u40').family_number }
+    it { should == 7 }
+  end
 end
