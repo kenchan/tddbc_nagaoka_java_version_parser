@@ -32,4 +32,9 @@ describe JavaVersion do
     subject { JavaVersion.parse('JDK7u40').family_number }
     it { should == 7 }
   end
+
+  describe '#update_number' do
+    subject { JavaVersion.parse('JDK7u40').update_number }
+    it { should == 40 }
+  end
 end

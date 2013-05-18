@@ -10,6 +10,11 @@ class JavaVersion
     $1.to_i
   end
 
+  def update_number
+    @version_string =~ VERSION_FORMAT
+    $2.to_i
+  end
+
   class << self
     def valid?(str)
       str =~ VERSION_FORMAT
