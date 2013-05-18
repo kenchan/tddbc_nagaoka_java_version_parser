@@ -12,7 +12,11 @@ class JavaVersion
   end
 
   def <=>(target)
-    self.update_number <=> target.update_number
+    if (self.family_number <=> target.family_number).zero?
+      self.update_number <=> target.update_number
+    else
+      self.family_number <=> target.family_number
+    end
   end
 
   class << self

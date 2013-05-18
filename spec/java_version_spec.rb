@@ -36,11 +36,16 @@ describe JavaVersion do
   end
 
   describe '#<=>' do
-    let(:u40) { JavaVersion.parse('JDK7u40') }
-    let(:u51) { JavaVersion.parse('JDK7u51') }
+    let(:v7u40) { JavaVersion.parse('JDK7u40') }
+    let(:v7u51) { JavaVersion.parse('JDK7u51') }
+    let(:v8u0) { JavaVersion.parse('JDK8u0') }
 
     context 'compare update number' do
-      it { u40.should be < u51 }
+      it { v7u40.should be < v7u51 }
+    end
+
+    context 'compare family number' do
+      it { v7u40.should be < v8u0 }
     end
   end
 end
