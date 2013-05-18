@@ -1,4 +1,6 @@
 class JavaVersion
+  include Comparable
+
   attr_reader :family_number, :update_number
 
   VERSION_FORMAT = /^JDK(\d+)u(\d+)$/
@@ -7,6 +9,10 @@ class JavaVersion
     version_string =~ VERSION_FORMAT
     @family_number = $1.to_i
     @update_number = $2.to_i
+  end
+
+  def <=>(target)
+    self.update_number <=> target.update_number
   end
 
   class << self

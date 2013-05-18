@@ -34,4 +34,13 @@ describe JavaVersion do
     its(:family_number) { should == 7 }
     its(:update_number) { should == 40 }
   end
+
+  describe '#<=>' do
+    let(:u40) { JavaVersion.parse('JDK7u40') }
+    let(:u51) { JavaVersion.parse('JDK7u51') }
+
+    context 'compare update number' do
+      it { u40.should be < u51 }
+    end
+  end
 end
